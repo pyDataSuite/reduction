@@ -1,2 +1,9 @@
 # reduction
 A library for faster processing, visualization, and interactions with extremely large datasets
+
+It contains multiple methods to reduce the size of datasets without compromising on the quality of calculations done with it!
+
+# Development
+Documentation will probably be generated from using [pdoc](https://pdoc.dev/)
+
+See [This guide on cython in python packages](https://stackoverflow.com/questions/4505747/how-should-i-structure-a-python-package-that-contains-cython-code)
