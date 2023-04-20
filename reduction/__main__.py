@@ -1,4 +1,3 @@
-from reduction import quant
 from reduction.quant import cmath, jmath, pmath
 import numpy as np
 from timeit import Timer
