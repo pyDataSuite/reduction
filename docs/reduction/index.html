@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>reduction.quant.pmath API documentation</title>
-<meta name="description" content="" />
+<title>reduction API documentation</title>
+<meta name="description" content="This is a test of pdoc3!" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -25,42 +25,36 @@ body.gsc-overflow-hidden #sidebar {overflow: visible;}
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>reduction.quant.pmath</code></h1>
+<h1 class="title">Package <code>reduction</code></h1>
 </header>
 <section id="section-intro">
+<p>This is a test of pdoc3!</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">import numpy as np
-
-def snap_to_grid( grid_start: float, grid_scale: float, values: np.ndarray ) -&gt; np.ndarray:
-    grid_values = ( values - grid_start ) * grid_scale
-    return grid_values</code></pre>
+<pre><code class="python">&#34;&#34;&#34;
+This is a test of pdoc3!
+&#34;&#34;&#34; 
+# from pathlib import Path
+# # with open( Path( __file__ ).parent/&#34;README.md&#34;, &#34;r&#34;) as f:
+# __doc__ = (Path( __file__ ).parent.parent/&#34;README.md&#34;).read_text()</code></pre>
 </details>
 </section>
 <section>
-</section>
-<section>
-</section>
-<section>
-<h2 class="section-title" id="header-functions">Functions</h2>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
 <dl>
-<dt id="reduction.quant.pmath.snap_to_grid"><code class="name flex">
-<span>def <span class="ident">snap_to_grid</span></span>(<span>grid_start: float, grid_scale: float, values: numpy.ndarray) ‑> numpy.ndarray</span>
-</code></dt>
+<dt><code class="name"><a title="reduction.quant" href="quant/index.html">reduction.quant</a></code></dt>
 <dd>
-<div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def snap_to_grid( grid_start: float, grid_scale: float, values: np.ndarray ) -&gt; np.ndarray:
-    grid_values = ( values - grid_start ) * grid_scale
-    return grid_values</code></pre>
-</details>
+<div class="desc"><p>The quantization package is used to reduce the amount of data sent to
+a plot without any visual degredation in quality. It has first-class support
+for …</p></div>
 </dd>
 </dl>
+</section>
+<section>
+</section>
+<section>
 </section>
 <section>
 </section>
@@ -68,21 +62,16 @@ def snap_to_grid( grid_start: float, grid_scale: float, values: np.ndarray ) -&g
 <nav id="sidebar">
 <div class="gcse-search" style="height: 70px"
 data-as_oq="site:pydatasuite.github.io"
-data-gaCategoryParameter="reduction.quant.pmath">
+data-gaCategoryParameter="reduction">
 </div>
 <h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3>Super-module</h3>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
 <ul>
-<li><code><a title="reduction.quant" href="index.html">reduction.quant</a></code></li>
-</ul>
-</li>
-<li><h3><a href="#header-functions">Functions</a></h3>
-<ul class="">
-<li><code><a title="reduction.quant.pmath.snap_to_grid" href="#reduction.quant.pmath.snap_to_grid">snap_to_grid</a></code></li>
+<li><code><a title="reduction.quant" href="quant/index.html">reduction.quant</a></code></li>
 </ul>
 </li>
 </ul>
