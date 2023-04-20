@@ -1,7 +1,6 @@
 from pdoc import cli
 from argparse import Namespace
 from shutil import rmtree, move
-from os import mkdir
 from pathlib import Path
 
 directory = Path( __file__ ).parent

@@ -1,6 +1,6 @@
 """
-This is a test of pdoc3!
+.. warning:: This package is at an early version and while features won't be removed, the api is subject to change!"
+
+.. include:: ../README.md 
+  :start-line: 1
 """ 
-# from pathlib import Path
-# # with open( Path( __file__ ).parent/"README.md", "r") as f:
-# __doc__ = (Path( __file__ ).parent.parent/"README.md").read_text()
