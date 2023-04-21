@@ -11,3 +11,6 @@ Holoviews or Datashaders, all the data is plotted as a real dataset.
 Data produced by this package will be affected by quantization and discretization
 errors. The magnitude of which depend on how the classes are configured.
 """
+
+from . import LineReducer
+from . import native

@@ -1,5 +1,6 @@
 from setuptools import setup, find_packages
 from Cython.Build import cythonize
+from pathlib import Path
 import numpy
 
 with open( "README.md", "r" ) as f:
@@ -22,8 +23,6 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
-    ext_modules=cythonize( 
-        [ "reduction/**/*.pyx" ]
-    ),
+    ext_modules=cythonize( [ "reduction/**/*.pyx" ], annotate=True ),
     include_dirs=[ numpy.get_include( ) ]
 )
