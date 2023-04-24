@@ -9,9 +9,42 @@ For a report on the quality of the native code, see [this page](./_native.html)
 # This file contains functions that wrap the native libraries, which allows
 # type annotations and some prepocessing to be used.
 
-import multiprocessing
 import numpy as np
 from . import _native
+from reduction import Boundary
 
-def snap_to_grid( grid_start: float, grid_scale: float, data: np.ndarray ) -> np.ndarray:
-    return _native.snap_to_grid( grid_start, grid_scale, data )
+def line_reduce( raw_data: np.ndarray, dpi: float, gridsize: np.ndarray, bounds: Boundary ) -> np.ndarray:
+    """
+    A reduction algorithm for linear datasets of two or three dimensions.
+    Designed to preserve the shape of data no matter how much detail must be lost.
+
+    Args:
+        raw_data (np.ndarray): The data that makes up the line. Can be 2d or 3d. Each dimension must be its own row.
+        dpi (float): The dpi of the dataset. Directly influences the resolution of the grid. Match with plot's dpi.
+        gridsize (np.ndarray): The size of the grid in inches. Match with plot's figure size.
+        bounds (Boundary): The boundaries of the view. Points outside these bounds will not be represented in the output.
+    
+    Returns:
+        np.ndarray: The reduced dataset.
+    """
+    
+    # Validate inputs
+    if len( raw_data.shape ) != 2:
+        raise ValueError( "raw_data must be 2d or 3d! This means a 2d matrix of two or three rows." )
+    if raw_data.shape[ 0 ] > raw_data.shape[ 1 ]:
+        raise ValueError( "Dimensions in raw_data must be oriented as rows in the vector (first index)!" )
+    if dpi < 1:
+        raise ValueError( "dpi must be greater than or equal to 1!" )
+    
+    # Call native function
+    return _native.line_reduce( 
+        raw_data, 
+        dpi, 
+        gridsize, 
+        bounds.xmin, 
+        bounds.xmax, 
+        bounds.ymin, 
+        bounds.ymax, 
+        bounds.zmin, 
+        bounds.zmax 
+    )

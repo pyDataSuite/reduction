@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>reduction.quant.Line API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<link rel="preconnect" href="https://www.google.com">
+<script async src="https://cse.google.com/cse.js?cx=017837193012385208679:pey8ky8gdqw"></script>
+<style>
+.gsc-control-cse {padding:0 !important;margin-top:1em}
+body.gsc-overflow-hidden #sidebar {overflow: visible;}
+</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>reduction.quant.Line</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+from matplotlib.figure import Figure
+from matplotlib.axes import Axes
+from mpl_toolkits import mplot3d
+from threading import Thread
+
+from reduction import Boundary
+from .native import line_reduce
+
+class Line:
+    &#34;&#34;&#34;
+    A quantization reducer class that represents line plots. Can be used with
+    one-dimensional or two-dimensional data.
+    &#34;&#34;&#34;
+
+    def __init__( self, data: np.ndarray, dpi=100, gridsize=( 6.4, 4.8 ), boundary: Boundary=None ) -&gt; None:
+        &#34;&#34;&#34;
+        Args:
+            data (np.ndarray): The data that makes up the line.
+            .. warning:: data must be either 2 or 3 dimensions
+            .. info:: data is supported in row form and column form. It internally will be converted to row form, but the input will not be affected.
+        &#34;&#34;&#34;
+        
+        # Copy input data and turn it into row data if it is not already
+        if data.shape[ 0 ] &gt; data.shape[ 1 ]:
+            self.data = np.copy( np.transpose( data ) )
+        else:
+            self.data = np.copy( data )
+        
+        self.ndim = np.min( data.shape )
+        self.dpi = dpi
+        if not isinstance( gridsize, np.ndarray ):
+            self.gridsize = np.array( gridsize )
+        else:
+            self.gridsize = gridsize
+        self.data_small = np.array( [] )
+
+        # Set default boundary
+        if boundary is None:
+            self.boundary = Boundary(
+                xmin=np.min( self.data[ 0 ] ),
+                xmax=np.max( self.data[ 0 ] ),
+                ymin=np.min( self.data[ 1 ] ),
+                ymax=np.max( self.data[ 1 ] ),
+                zmin=np.min( self.data[ 2 ] ) if self.ndim == 3 else np.nan,
+                zmax=np.max( self.data[ 2 ] ) if self.ndim == 3 else np.nan,
+            )
+        else:
+            self.boundary = boundary
+
+        # Process smaller dataset
+        self.reduce_data( )
+
+        # Final stuff
+        self.updates = 0
+        self.update_thread = Thread( )
+        self.__plot__ = None
+        self.redraw = True
+
+    #
+    # These functions facilitate working with the raw data
+    #
+    @property
+    def raw_x( self ):
+        &#34;&#34;&#34;Returns the x values of the raw dataset&#34;&#34;&#34;
+        return self.data[ 0 ]
+    
+    @raw_x.setter
+    def raw_x( self, value ):
+        &#34;&#34;&#34;Sets the x values of the raw dataset&#34;&#34;&#34;
+        self.data[ 0 ] = value
+    
+    @property
+    def raw_y( self ):
+        &#34;&#34;&#34;Returns the y values of the raw dataset&#34;&#34;&#34;
+        return self.data[ 1 ]
+    
+    @raw_y.setter
+    def raw_y( self, value ):
+        &#34;&#34;&#34;Sets the y values of the raw dataset&#34;&#34;&#34;
+        self.data[ 1 ] = value
+    
+    @property
+    def raw_z( self ):
+        &#34;&#34;&#34;Returns the z values of the raw dataset&#34;&#34;&#34;
+        return self.data[ 2 ]
+    
+    @raw_z.setter
+    def raw_z( self, value ):
+        &#34;&#34;&#34;Sets the z values of the raw dataset&#34;&#34;&#34;
+        self.data[ 2 ] = value
+    
+    #
+    # These functions facilitate working with the reduced data
+    #
+    @property
+    def x( self ):
+        &#34;&#34;&#34;Returns the x values of the reduced dataset&#34;&#34;&#34;
+        return self.data_small[ 0 ]
+    
+    @x.setter
+    def x( self, value ):
+        &#34;&#34;&#34;Sets the x values of the reduced dataset&#34;&#34;&#34;
+        self.data_small[ 0 ] = value
+
+    @property
+    def y( self ):
+        &#34;&#34;&#34;Returns the y values of the reduced dataset&#34;&#34;&#34;
+        return self.data_small[ 1 ]
+    
+    @y.setter
+    def y( self, value ):
+        &#34;&#34;&#34;Sets the y values of the reduced dataset&#34;&#34;&#34;
+        self.data_small[ 1 ] = value
+
+    @property
+    def z( self ):
+        &#34;&#34;&#34;Returns the z values of the reduced dataset&#34;&#34;&#34;
+        return self.data_small[ 2 ]
+    
+    @z.setter
+    def z( self, value ):
+        &#34;&#34;&#34;Sets the z values of the reduced dataset&#34;&#34;&#34;
+        self.data_small[ 2 ] = value
+
+    def reduce_data( self ):
+        &#34;&#34;&#34;
+        Generates a small dataset that can be used to plot the line
+        &#34;&#34;&#34;
+        self.data_small = line_reduce( self.data, self.dpi, self.gridsize, self.boundary )
+
+    def plot( self, figure: Figure, axes: Axes, **plot_args ) -&gt; None:
+        &#34;&#34;&#34;
+        Add the Line dataset to a matplotlib figure.
+
+        Args:
+            figure (Figure): the figure to use for the plot
+            axes (Axes): the axes to use for the plot
+            **plot_args: additional arguments to pass to the plot function
+
+        Example:
+        ```
+        fig, ax = plt.subplots()
+        l = Line( np.arange( 20 ).reshape( 2, 10 ) )
+        l.plot( fig, ax, color=&#39;red&#39; )
+        ```
+        &#34;&#34;&#34;        
+        self.axes = axes
+        self.figure = figure
+        self.__plot__, = self.axes.plot( *self.data_small, **plot_args )
+
+        # Update to match plot settings
+        self.dpi = self.figure.dpi
+        self.size = self.figure.get_size_inches()
+
+        # Attach relevant callbacks
+        self.axes.callbacks.connect( &#39;xlim_changed&#39;, self._update )
+        self.axes.callbacks.connect( &#39;ylim_changed&#39;, self._update )
+
+    def _update( self, _ ):
+
+        # Update parameters to match plot
+        self.boundary.xmin, self.boundary.xmax = self.axes.get_xlim( )
+        self.boundary.ymin, self.boundary.ymax = self.axes.get_ylim( )
+        if self.ndim == 3:
+            self.boundary.zmin, self.boundary.zmax = self.axes.get_zlim( )
+
+        self.dpi = self.figure.dpi
+        self.size = self.figure.get_size_inches()
+
+        # Log that we requested an update
+        if self.updates &lt;= 1:
+            self.updates += 1
+        
+        # Ensure we aren&#39;t already updating
+        if not self.update_thread.is_alive( ):
+            try:
+                self.update_thread.join( )
+            except RuntimeError:
+                pass
+
+            # Generate new thread
+            self.update_thread = Thread( target=self._reprocess )
+            self.update_thread.start( )
+    
+    def _reprocess( self ):
+        while self.updates &gt; 0:
+            self.updates -= 1
+
+            self.reduce_data( )
+
+            if self.__plot__ is not None:
+                self.__plot__.set_xdata( self.data_small[ 0 ] )
+                self.__plot__.set_ydata( self.data_small[ 1 ] )
+                if self.ndim == 3:
+                    self.__plot__.set_zdata( self.data_small[ 2 ] )
+        
+        # Finish by updating the drawing
+        if self.__plot__ is not None and self.redraw:
+            self.figure.canvas.draw( )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="reduction.quant.Line.Line"><code class="flex name class">
+<span>class <span class="ident">Line</span></span>
+<span>(</span><span>data: numpy.ndarray, dpi=100, gridsize=(6.4, 4.8), boundary: <a title="reduction.boundary.Boundary" href="../boundary.html#reduction.boundary.Boundary">Boundary</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A quantization reducer class that represents line plots. Can be used with
+one-dimensional or two-dimensional data.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>The data that makes up the line.</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;data must be either 2 or 3 dimensions</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info:&ensp;data is supported in row form and column form. It internally will be converted to row form, but the input will not be affected.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Line:
+    &#34;&#34;&#34;
+    A quantization reducer class that represents line plots. Can be used with
+    one-dimensional or two-dimensional data.
+    &#34;&#34;&#34;
+
+    def __init__( self, data: np.ndarray, dpi=100, gridsize=( 6.4, 4.8 ), boundary: Boundary=None ) -&gt; None:
+        &#34;&#34;&#34;
+        Args:
+            data (np.ndarray): The data that makes up the line.
+            .. warning:: data must be either 2 or 3 dimensions
+            .. info:: data is supported in row form and column form. It internally will be converted to row form, but the input will not be affected.
+        &#34;&#34;&#34;
+        
+        # Copy input data and turn it into row data if it is not already
+        if data.shape[ 0 ] &gt; data.shape[ 1 ]:
+            self.data = np.copy( np.transpose( data ) )
+        else:
+            self.data = np.copy( data )
+        
+        self.ndim = np.min( data.shape )
+        self.dpi = dpi
+        if not isinstance( gridsize, np.ndarray ):
+            self.gridsize = np.array( gridsize )
+        else:
+            self.gridsize = gridsize
+        self.data_small = np.array( [] )
+
+        # Set default boundary
+        if boundary is None:
+            self.boundary = Boundary(
+                xmin=np.min( self.data[ 0 ] ),
+                xmax=np.max( self.data[ 0 ] ),
+                ymin=np.min( self.data[ 1 ] ),
+                ymax=np.max( self.data[ 1 ] ),
+                zmin=np.min( self.data[ 2 ] ) if self.ndim == 3 else np.nan,
+                zmax=np.max( self.data[ 2 ] ) if self.ndim == 3 else np.nan,
+            )
+        else:
+            self.boundary = boundary
+
+        # Process smaller dataset
+        self.reduce_data( )
+
+        # Final stuff
+        self.updates = 0
+        self.update_thread = Thread( )
+        self.__plot__ = None
+        self.redraw = True
+
+    #
+    # These functions facilitate working with the raw data
+    #
+    @property
+    def raw_x( self ):
+        &#34;&#34;&#34;Returns the x values of the raw dataset&#34;&#34;&#34;
+        return self.data[ 0 ]
+    
+    @raw_x.setter
+    def raw_x( self, value ):
+        &#34;&#34;&#34;Sets the x values of the raw dataset&#34;&#34;&#34;
+        self.data[ 0 ] = value
+    
+    @property
+    def raw_y( self ):
+        &#34;&#34;&#34;Returns the y values of the raw dataset&#34;&#34;&#34;
+        return self.data[ 1 ]
+    
+    @raw_y.setter
+    def raw_y( self, value ):
+        &#34;&#34;&#34;Sets the y values of the raw dataset&#34;&#34;&#34;
+        self.data[ 1 ] = value
+    
+    @property
+    def raw_z( self ):
+        &#34;&#34;&#34;Returns the z values of the raw dataset&#34;&#34;&#34;
+        return self.data[ 2 ]
+    
+    @raw_z.setter
+    def raw_z( self, value ):
+        &#34;&#34;&#34;Sets the z values of the raw dataset&#34;&#34;&#34;
+        self.data[ 2 ] = value
+    
+    #
+    # These functions facilitate working with the reduced data
+    #
+    @property
+    def x( self ):
+        &#34;&#34;&#34;Returns the x values of the reduced dataset&#34;&#34;&#34;
+        return self.data_small[ 0 ]
+    
+    @x.setter
+    def x( self, value ):
+        &#34;&#34;&#34;Sets the x values of the reduced dataset&#34;&#34;&#34;
+        self.data_small[ 0 ] = value
+
+    @property
+    def y( self ):
+        &#34;&#34;&#34;Returns the y values of the reduced dataset&#34;&#34;&#34;
+        return self.data_small[ 1 ]
+    
+    @y.setter
+    def y( self, value ):
+        &#34;&#34;&#34;Sets the y values of the reduced dataset&#34;&#34;&#34;
+        self.data_small[ 1 ] = value
+
+    @property
+    def z( self ):
+        &#34;&#34;&#34;Returns the z values of the reduced dataset&#34;&#34;&#34;
+        return self.data_small[ 2 ]
+    
+    @z.setter
+    def z( self, value ):
+        &#34;&#34;&#34;Sets the z values of the reduced dataset&#34;&#34;&#34;
+        self.data_small[ 2 ] = value
+
+    def reduce_data( self ):
+        &#34;&#34;&#34;
+        Generates a small dataset that can be used to plot the line
+        &#34;&#34;&#34;
+        self.data_small = line_reduce( self.data, self.dpi, self.gridsize, self.boundary )
+
+    def plot( self, figure: Figure, axes: Axes, **plot_args ) -&gt; None:
+        &#34;&#34;&#34;
+        Add the Line dataset to a matplotlib figure.
+
+        Args:
+            figure (Figure): the figure to use for the plot
+            axes (Axes): the axes to use for the plot
+            **plot_args: additional arguments to pass to the plot function
+
+        Example:
+        ```
+        fig, ax = plt.subplots()
+        l = Line( np.arange( 20 ).reshape( 2, 10 ) )
+        l.plot( fig, ax, color=&#39;red&#39; )
+        ```
+        &#34;&#34;&#34;        
+        self.axes = axes
+        self.figure = figure
+        self.__plot__, = self.axes.plot( *self.data_small, **plot_args )
+
+        # Update to match plot settings
+        self.dpi = self.figure.dpi
+        self.size = self.figure.get_size_inches()
+
+        # Attach relevant callbacks
+        self.axes.callbacks.connect( &#39;xlim_changed&#39;, self._update )
+        self.axes.callbacks.connect( &#39;ylim_changed&#39;, self._update )
+
+    def _update( self, _ ):
+
+        # Update parameters to match plot
+        self.boundary.xmin, self.boundary.xmax = self.axes.get_xlim( )
+        self.boundary.ymin, self.boundary.ymax = self.axes.get_ylim( )
+        if self.ndim == 3:
+            self.boundary.zmin, self.boundary.zmax = self.axes.get_zlim( )
+
+        self.dpi = self.figure.dpi
+        self.size = self.figure.get_size_inches()
+
+        # Log that we requested an update
+        if self.updates &lt;= 1:
+            self.updates += 1
+        
+        # Ensure we aren&#39;t already updating
+        if not self.update_thread.is_alive( ):
+            try:
+                self.update_thread.join( )
+            except RuntimeError:
+                pass
+
+            # Generate new thread
+            self.update_thread = Thread( target=self._reprocess )
+            self.update_thread.start( )
+    
+    def _reprocess( self ):
+        while self.updates &gt; 0:
+            self.updates -= 1
+
+            self.reduce_data( )
+
+            if self.__plot__ is not None:
+                self.__plot__.set_xdata( self.data_small[ 0 ] )
+                self.__plot__.set_ydata( self.data_small[ 1 ] )
+                if self.ndim == 3:
+                    self.__plot__.set_zdata( self.data_small[ 2 ] )
+        
+        # Finish by updating the drawing
+        if self.__plot__ is not None and self.redraw:
+            self.figure.canvas.draw( )</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="reduction.quant.Line.Line.raw_x"><code class="name">var <span class="ident">raw_x</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the x values of the raw dataset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def raw_x( self ):
+    &#34;&#34;&#34;Returns the x values of the raw dataset&#34;&#34;&#34;
+    return self.data[ 0 ]</code></pre>
+</details>
+</dd>
+<dt id="reduction.quant.Line.Line.raw_y"><code class="name">var <span class="ident">raw_y</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the y values of the raw dataset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def raw_y( self ):
+    &#34;&#34;&#34;Returns the y values of the raw dataset&#34;&#34;&#34;
+    return self.data[ 1 ]</code></pre>
+</details>
+</dd>
+<dt id="reduction.quant.Line.Line.raw_z"><code class="name">var <span class="ident">raw_z</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the z values of the raw dataset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def raw_z( self ):
+    &#34;&#34;&#34;Returns the z values of the raw dataset&#34;&#34;&#34;
+    return self.data[ 2 ]</code></pre>
+</details>
+</dd>
+<dt id="reduction.quant.Line.Line.x"><code class="name">var <span class="ident">x</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the x values of the reduced dataset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def x( self ):
+    &#34;&#34;&#34;Returns the x values of the reduced dataset&#34;&#34;&#34;
+    return self.data_small[ 0 ]</code></pre>
+</details>
+</dd>
+<dt id="reduction.quant.Line.Line.y"><code class="name">var <span class="ident">y</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the y values of the reduced dataset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def y( self ):
+    &#34;&#34;&#34;Returns the y values of the reduced dataset&#34;&#34;&#34;
+    return self.data_small[ 1 ]</code></pre>
+</details>
+</dd>
+<dt id="reduction.quant.Line.Line.z"><code class="name">var <span class="ident">z</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the z values of the reduced dataset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def z( self ):
+    &#34;&#34;&#34;Returns the z values of the reduced dataset&#34;&#34;&#34;
+    return self.data_small[ 2 ]</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="reduction.quant.Line.Line.plot"><code class="name flex">
+<span>def <span class="ident">plot</span></span>(<span>self, figure: matplotlib.figure.Figure, axes: matplotlib.axes._axes.Axes, **plot_args) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add the Line dataset to a matplotlib figure.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>figure</code></strong> :&ensp;<code>Figure</code></dt>
+<dd>the figure to use for the plot</dd>
+<dt><strong><code>axes</code></strong> :&ensp;<code>Axes</code></dt>
+<dd>the axes to use for the plot</dd>
+<dt><strong><code>**plot_args</code></strong></dt>
+<dd>additional arguments to pass to the plot function</dd>
+</dl>
+<p>Example:</p>
+<pre><code>fig, ax = plt.subplots()
+l = Line( np.arange( 20 ).reshape( 2, 10 ) )
+l.plot( fig, ax, color='red' )
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plot( self, figure: Figure, axes: Axes, **plot_args ) -&gt; None:
+    &#34;&#34;&#34;
+    Add the Line dataset to a matplotlib figure.
+
+    Args:
+        figure (Figure): the figure to use for the plot
+        axes (Axes): the axes to use for the plot
+        **plot_args: additional arguments to pass to the plot function
+
+    Example:
+    ```
+    fig, ax = plt.subplots()
+    l = Line( np.arange( 20 ).reshape( 2, 10 ) )
+    l.plot( fig, ax, color=&#39;red&#39; )
+    ```
+    &#34;&#34;&#34;        
+    self.axes = axes
+    self.figure = figure
+    self.__plot__, = self.axes.plot( *self.data_small, **plot_args )
+
+    # Update to match plot settings
+    self.dpi = self.figure.dpi
+    self.size = self.figure.get_size_inches()
+
+    # Attach relevant callbacks
+    self.axes.callbacks.connect( &#39;xlim_changed&#39;, self._update )
+    self.axes.callbacks.connect( &#39;ylim_changed&#39;, self._update )</code></pre>
+</details>
+</dd>
+<dt id="reduction.quant.Line.Line.reduce_data"><code class="name flex">
+<span>def <span class="ident">reduce_data</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a small dataset that can be used to plot the line</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reduce_data( self ):
+    &#34;&#34;&#34;
+    Generates a small dataset that can be used to plot the line
+    &#34;&#34;&#34;
+    self.data_small = line_reduce( self.data, self.dpi, self.gridsize, self.boundary )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="gcse-search" style="height: 70px"
+data-as_oq="site:pydatasuite.github.io"
+data-gaCategoryParameter="reduction.quant.Line">
+</div>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="reduction.quant" href="index.html">reduction.quant</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="reduction.quant.Line.Line" href="#reduction.quant.Line.Line">Line</a></code></h4>
+<ul class="two-column">
+<li><code><a title="reduction.quant.Line.Line.plot" href="#reduction.quant.Line.Line.plot">plot</a></code></li>
+<li><code><a title="reduction.quant.Line.Line.raw_x" href="#reduction.quant.Line.Line.raw_x">raw_x</a></code></li>
+<li><code><a title="reduction.quant.Line.Line.raw_y" href="#reduction.quant.Line.Line.raw_y">raw_y</a></code></li>
+<li><code><a title="reduction.quant.Line.Line.raw_z" href="#reduction.quant.Line.Line.raw_z">raw_z</a></code></li>
+<li><code><a title="reduction.quant.Line.Line.reduce_data" href="#reduction.quant.Line.Line.reduce_data">reduce_data</a></code></li>
+<li><code><a title="reduction.quant.Line.Line.x" href="#reduction.quant.Line.Line.x">x</a></code></li>
+<li><code><a title="reduction.quant.Line.Line.y" href="#reduction.quant.Line.Line.y">y</a></code></li>
+<li><code><a title="reduction.quant.Line.Line.z" href="#reduction.quant.Line.Line.z">z</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

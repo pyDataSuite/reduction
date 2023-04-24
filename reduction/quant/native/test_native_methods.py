@@ -7,28 +7,34 @@ expected.
 
 import numpy as np
 from reduction.quant import native
+from reduction import Boundary
+import matplotlib.pyplot as plt
 
-def test_grid_snapping_interface( ):
+def test_line_reduce_algorithm( ):
     """
-    This function tests the interface to the function
-    and ensures that it behaves appropriately.
+    This function tests the interface to the function and
+    ensures that it behaves appropriately.
     """
 
-    xs = np.random.rand( 10_000_000 ) * 100
-    xs_dup = np.copy( xs )
-    xs_snapped = native.snap_to_grid( grid_start=0.5, grid_scale=1.1, data=xs )
+    # Generate data
+    x = np.linspace( 0, 2 * np.pi, 200_000 )
+    y = np.sin( x )
+    data = np.array( [ x, y ] )
+    data1_backup = np.copy( data )
 
-    # Input array should not be changed
-    assert np.all( xs == xs_dup )
+    # Perform reduction
+    reduced1 = native.line_reduce( raw_data=data, dpi=100, gridsize=np.array( [ 6.4, 4.8 ] ), bounds=Boundary( 0, 2, -2, 2 ) )
+    assert np.all( data == data1_backup )
 
-    # Output should be different from input
-    assert np.all( xs_snapped != xs )
+    # Generate higher-resolution data
+    x = np.linspace( 0, 2 * np.pi, 250_000 )
+    y = np.sin( x )
+    data = np.array( [ x, y ] )
+    data2_backup = np.copy( data )
 
-def test_grid_snapping( ):
-    """
-    This function tests the output of snap_to_grid and
-    ensures that the function operates correctly
-    """
-    xs = np.arange( 10.0 )
-    xs_snapped = native.snap_to_grid( grid_start=0.5, grid_scale=0.5, data=xs )
-    assert np.all( xs_snapped == np.array( [ 0.5, 0.5, 2.5, 2.5, 4.5, 4.5, 6.5, 6.5, 8.5, 8.5 ] ) )
+    # Perform reduction
+    reduced2 = native.line_reduce( raw_data=data, dpi=100, gridsize=np.array( [ 6.4, 4.8 ] ), bounds=Boundary( 0, 2, -2, 2 ) )
+    assert np.all( data == data2_backup )
+
+    # Ensure outputs are the same
+    assert np.all( reduced1 == reduced2 )

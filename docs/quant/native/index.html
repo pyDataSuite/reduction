@@ -49,12 +49,45 @@ For a report on the quality of the native code, see [this page](./_native.html)
 # This file contains functions that wrap the native libraries, which allows
 # type annotations and some prepocessing to be used.
 
-import multiprocessing
 import numpy as np
 from . import _native
+from reduction import Boundary
 
-def snap_to_grid( grid_start: float, grid_scale: float, data: np.ndarray ) -&gt; np.ndarray:
-    return _native.snap_to_grid( grid_start, grid_scale, data )</code></pre>
+def line_reduce( raw_data: np.ndarray, dpi: float, gridsize: np.ndarray, bounds: Boundary ) -&gt; np.ndarray:
+    &#34;&#34;&#34;
+    A reduction algorithm for linear datasets of two or three dimensions.
+    Designed to preserve the shape of data no matter how much detail must be lost.
+
+    Args:
+        raw_data (np.ndarray): The data that makes up the line. Can be 2d or 3d. Each dimension must be its own row.
+        dpi (float): The dpi of the dataset. Directly influences the resolution of the grid. Match with plot&#39;s dpi.
+        gridsize (np.ndarray): The size of the grid in inches. Match with plot&#39;s figure size.
+        bounds (Boundary): The boundaries of the view. Points outside these bounds will not be represented in the output.
+    
+    Returns:
+        np.ndarray: The reduced dataset.
+    &#34;&#34;&#34;
+    
+    # Validate inputs
+    if len( raw_data.shape ) != 2:
+        raise ValueError( &#34;raw_data must be 2d or 3d! This means a 2d matrix of two or three rows.&#34; )
+    if raw_data.shape[ 0 ] &gt; raw_data.shape[ 1 ]:
+        raise ValueError( &#34;Dimensions in raw_data must be oriented as rows in the vector (first index)!&#34; )
+    if dpi &lt; 1:
+        raise ValueError( &#34;dpi must be greater than or equal to 1!&#34; )
+    
+    # Call native function
+    return _native.line_reduce( 
+        raw_data, 
+        dpi, 
+        gridsize, 
+        bounds.xmin, 
+        bounds.xmax, 
+        bounds.ymin, 
+        bounds.ymax, 
+        bounds.zmin, 
+        bounds.zmax 
+    )</code></pre>
 </details>
 </section>
 <section>
@@ -73,17 +106,67 @@ that performance is …</p></div>
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="reduction.quant.native.snap_to_grid"><code class="name flex">
-<span>def <span class="ident">snap_to_grid</span></span>(<span>grid_start: float, grid_scale: float, data: numpy.ndarray) ‑> numpy.ndarray</span>
+<dt id="reduction.quant.native.line_reduce"><code class="name flex">
+<span>def <span class="ident">line_reduce</span></span>(<span>raw_data: numpy.ndarray, dpi: float, gridsize: numpy.ndarray, bounds: <a title="reduction.boundary.Boundary" href="../../boundary.html#reduction.boundary.Boundary">Boundary</a>) ‑> numpy.ndarray</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>A reduction algorithm for linear datasets of two or three dimensions.
+Designed to preserve the shape of data no matter how much detail must be lost.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>raw_data</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>The data that makes up the line. Can be 2d or 3d. Each dimension must be its own row.</dd>
+<dt><strong><code>dpi</code></strong> :&ensp;<code>float</code></dt>
+<dd>The dpi of the dataset. Directly influences the resolution of the grid. Match with plot's dpi.</dd>
+<dt><strong><code>gridsize</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>The size of the grid in inches. Match with plot's figure size.</dd>
+<dt><strong><code>bounds</code></strong> :&ensp;<code>Boundary</code></dt>
+<dd>The boundaries of the view. Points outside these bounds will not be represented in the output.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>np.ndarray</code></dt>
+<dd>The reduced dataset.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def snap_to_grid( grid_start: float, grid_scale: float, data: np.ndarray ) -&gt; np.ndarray:
-    return _native.snap_to_grid( grid_start, grid_scale, data )</code></pre>
+<pre><code class="python">def line_reduce( raw_data: np.ndarray, dpi: float, gridsize: np.ndarray, bounds: Boundary ) -&gt; np.ndarray:
+    &#34;&#34;&#34;
+    A reduction algorithm for linear datasets of two or three dimensions.
+    Designed to preserve the shape of data no matter how much detail must be lost.
+
+    Args:
+        raw_data (np.ndarray): The data that makes up the line. Can be 2d or 3d. Each dimension must be its own row.
+        dpi (float): The dpi of the dataset. Directly influences the resolution of the grid. Match with plot&#39;s dpi.
+        gridsize (np.ndarray): The size of the grid in inches. Match with plot&#39;s figure size.
+        bounds (Boundary): The boundaries of the view. Points outside these bounds will not be represented in the output.
+    
+    Returns:
+        np.ndarray: The reduced dataset.
+    &#34;&#34;&#34;
+    
+    # Validate inputs
+    if len( raw_data.shape ) != 2:
+        raise ValueError( &#34;raw_data must be 2d or 3d! This means a 2d matrix of two or three rows.&#34; )
+    if raw_data.shape[ 0 ] &gt; raw_data.shape[ 1 ]:
+        raise ValueError( &#34;Dimensions in raw_data must be oriented as rows in the vector (first index)!&#34; )
+    if dpi &lt; 1:
+        raise ValueError( &#34;dpi must be greater than or equal to 1!&#34; )
+    
+    # Call native function
+    return _native.line_reduce( 
+        raw_data, 
+        dpi, 
+        gridsize, 
+        bounds.xmin, 
+        bounds.xmax, 
+        bounds.ymin, 
+        bounds.ymax, 
+        bounds.zmin, 
+        bounds.zmax 
+    )</code></pre>
 </details>
 </dd>
 </dl>
@@ -113,7 +196,7 @@ data-gaCategoryParameter="reduction.quant.native">
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="reduction.quant.native.snap_to_grid" href="#reduction.quant.native.snap_to_grid">snap_to_grid</a></code></li>
+<li><code><a title="reduction.quant.native.line_reduce" href="#reduction.quant.native.line_reduce">line_reduce</a></code></li>
 </ul>
 </li>
 </ul>

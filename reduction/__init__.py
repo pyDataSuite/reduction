@@ -5,4 +5,5 @@
   :start-line: 1
 """ 
 
+from .boundary import Boundary
 from . import quant

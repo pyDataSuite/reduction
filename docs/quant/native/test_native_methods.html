@@ -47,31 +47,37 @@ expected.
 
 import numpy as np
 from reduction.quant import native
+from reduction import Boundary
+import matplotlib.pyplot as plt
 
-def test_grid_snapping_interface( ):
+def test_line_reduce_algorithm( ):
     &#34;&#34;&#34;
-    This function tests the interface to the function
-    and ensures that it behaves appropriately.
+    This function tests the interface to the function and
+    ensures that it behaves appropriately.
     &#34;&#34;&#34;
 
-    xs = np.random.rand( 10_000_000 ) * 100
-    xs_dup = np.copy( xs )
-    xs_snapped = native.snap_to_grid( grid_start=0.5, grid_scale=1.1, data=xs )
+    # Generate data
+    x = np.linspace( 0, 2 * np.pi, 200_000 )
+    y = np.sin( x )
+    data = np.array( [ x, y ] )
+    data1_backup = np.copy( data )
 
-    # Input array should not be changed
-    assert np.all( xs == xs_dup )
+    # Perform reduction
+    reduced1 = native.line_reduce( raw_data=data, dpi=100, gridsize=np.array( [ 6.4, 4.8 ] ), bounds=Boundary( 0, 2, -2, 2 ) )
+    assert np.all( data == data1_backup )
 
-    # Output should be different from input
-    assert np.all( xs_snapped != xs )
+    # Generate higher-resolution data
+    x = np.linspace( 0, 2 * np.pi, 250_000 )
+    y = np.sin( x )
+    data = np.array( [ x, y ] )
+    data2_backup = np.copy( data )
 
-def test_grid_snapping( ):
-    &#34;&#34;&#34;
-    This function tests the output of snap_to_grid and
-    ensures that the function operates correctly
-    &#34;&#34;&#34;
-    xs = np.arange( 10.0 )
-    xs_snapped = native.snap_to_grid( grid_start=0.5, grid_scale=0.5, data=xs )
-    assert np.all( xs_snapped == np.array( [ 0.5, 0.5, 2.5, 2.5, 4.5, 4.5, 6.5, 6.5, 8.5, 8.5 ] ) )</code></pre>
+    # Perform reduction
+    reduced2 = native.line_reduce( raw_data=data, dpi=100, gridsize=np.array( [ 6.4, 4.8 ] ), bounds=Boundary( 0, 2, -2, 2 ) )
+    assert np.all( data == data2_backup )
+
+    # Ensure outputs are the same
+    assert np.all( reduced1 == reduced2 )</code></pre>
 </details>
 </section>
 <section>
@@ -81,51 +87,44 @@ def test_grid_snapping( ):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="reduction.quant.native.test_native_methods.test_grid_snapping"><code class="name flex">
-<span>def <span class="ident">test_grid_snapping</span></span>(<span>)</span>
+<dt id="reduction.quant.native.test_native_methods.test_line_reduce_algorithm"><code class="name flex">
+<span>def <span class="ident">test_line_reduce_algorithm</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>This function tests the output of snap_to_grid and
-ensures that the function operates correctly</p></div>
+<div class="desc"><p>This function tests the interface to the function and
+ensures that it behaves appropriately.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_grid_snapping( ):
+<pre><code class="python">def test_line_reduce_algorithm( ):
     &#34;&#34;&#34;
-    This function tests the output of snap_to_grid and
-    ensures that the function operates correctly
-    &#34;&#34;&#34;
-    xs = np.arange( 10.0 )
-    xs_snapped = native.snap_to_grid( grid_start=0.5, grid_scale=0.5, data=xs )
-    assert np.all( xs_snapped == np.array( [ 0.5, 0.5, 2.5, 2.5, 4.5, 4.5, 6.5, 6.5, 8.5, 8.5 ] ) )</code></pre>
-</details>
-</dd>
-<dt id="reduction.quant.native.test_native_methods.test_grid_snapping_interface"><code class="name flex">
-<span>def <span class="ident">test_grid_snapping_interface</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>This function tests the interface to the function
-and ensures that it behaves appropriately.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def test_grid_snapping_interface( ):
-    &#34;&#34;&#34;
-    This function tests the interface to the function
-    and ensures that it behaves appropriately.
+    This function tests the interface to the function and
+    ensures that it behaves appropriately.
     &#34;&#34;&#34;
 
-    xs = np.random.rand( 10_000_000 ) * 100
-    xs_dup = np.copy( xs )
-    xs_snapped = native.snap_to_grid( grid_start=0.5, grid_scale=1.1, data=xs )
+    # Generate data
+    x = np.linspace( 0, 2 * np.pi, 200_000 )
+    y = np.sin( x )
+    data = np.array( [ x, y ] )
+    data1_backup = np.copy( data )
 
-    # Input array should not be changed
-    assert np.all( xs == xs_dup )
+    # Perform reduction
+    reduced1 = native.line_reduce( raw_data=data, dpi=100, gridsize=np.array( [ 6.4, 4.8 ] ), bounds=Boundary( 0, 2, -2, 2 ) )
+    assert np.all( data == data1_backup )
 
-    # Output should be different from input
-    assert np.all( xs_snapped != xs )</code></pre>
+    # Generate higher-resolution data
+    x = np.linspace( 0, 2 * np.pi, 250_000 )
+    y = np.sin( x )
+    data = np.array( [ x, y ] )
+    data2_backup = np.copy( data )
+
+    # Perform reduction
+    reduced2 = native.line_reduce( raw_data=data, dpi=100, gridsize=np.array( [ 6.4, 4.8 ] ), bounds=Boundary( 0, 2, -2, 2 ) )
+    assert np.all( data == data2_backup )
+
+    # Ensure outputs are the same
+    assert np.all( reduced1 == reduced2 )</code></pre>
 </details>
 </dd>
 </dl>
@@ -150,8 +149,7 @@ data-gaCategoryParameter="reduction.quant.native.test_native_methods">
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="reduction.quant.native.test_native_methods.test_grid_snapping" href="#reduction.quant.native.test_native_methods.test_grid_snapping">test_grid_snapping</a></code></li>
-<li><code><a title="reduction.quant.native.test_native_methods.test_grid_snapping_interface" href="#reduction.quant.native.test_native_methods.test_grid_snapping_interface">test_grid_snapping_interface</a></code></li>
+<li><code><a title="reduction.quant.native.test_native_methods.test_line_reduce_algorithm" href="#reduction.quant.native.test_native_methods.test_line_reduce_algorithm">test_line_reduce_algorithm</a></code></li>
 </ul>
 </li>
 </ul>

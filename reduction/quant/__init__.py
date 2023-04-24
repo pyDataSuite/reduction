@@ -12,5 +12,5 @@ Data produced by this package will be affected by quantization and discretizatio
 errors. The magnitude of which depend on how the classes are configured.
 """
 
-from . import LineReducer
+from .Line import Line
 from . import native
