@@ -12,6 +12,7 @@ For a report on the quality of the native code, see [this page](./_native.html)
 import numpy as np
 from . import _native
 from reduction import Boundary
+from enum import Enum
 
 def line_reduce( raw_data: np.ndarray, dpi: float, gridsize: np.ndarray, bounds: Boundary ) -> np.ndarray:
     """
@@ -48,3 +49,14 @@ def line_reduce( raw_data: np.ndarray, dpi: float, gridsize: np.ndarray, bounds:
         bounds.zmin, 
         bounds.zmax 
     )
+
+# class BoundsType( Enum ):
+#     """
+#     The type of the bounds.
+#     """
+    
+#     SIGMA = 0
+#     PERCENTILE = 1
+
+# Bring in other things
+from ._native import Bounds

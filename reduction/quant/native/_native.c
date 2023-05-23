@@ -4345,8 +4345,8 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
  * 
  *     # Prepare output arrays
  *     agg_values = np.full( ( grid_x_len, 2*num_datasets ), cnan, dtype=np.float64 )             # <<<<<<<<<<<<<<
- *     # min_values = np.full( ( grid_x_len, num_datasets ), cnan, dtype=np.float64 )
  *     cdef double[ :,::1 ] agg_values_view=agg_values #, min_values_view=min_values
+ * 
  */
   __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -4392,41 +4392,41 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
   __pyx_v_agg_values = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "reduction/quant/native/_native.pyx":129
+  /* "reduction/quant/native/_native.pyx":128
+ *     # Prepare output arrays
  *     agg_values = np.full( ( grid_x_len, 2*num_datasets ), cnan, dtype=np.float64 )
- *     # min_values = np.full( ( grid_x_len, num_datasets ), cnan, dtype=np.float64 )
  *     cdef double[ :,::1 ] agg_values_view=agg_values #, min_values_view=min_values             # <<<<<<<<<<<<<<
  * 
  *     # Begin collecting upper and lower values
  */
   __pyx_t_14 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_v_agg_values);
-  if (unlikely(!__pyx_t_14.memview)) __PYX_ERR(0, 129, __pyx_L1_error)
+  if (unlikely(!__pyx_t_14.memview)) __PYX_ERR(0, 128, __pyx_L1_error)
   __pyx_v_agg_values_view = __pyx_t_14;
   __pyx_t_14.memview = NULL;
   __pyx_t_14.data = NULL;
 
-  /* "reduction/quant/native/_native.pyx":133
+  /* "reduction/quant/native/_native.pyx":132
  *     # Begin collecting upper and lower values
  *     cdef double[ : ] x_data_view, y_data_view
  *     cdef double current_min=-np.inf, current_max=cnan, current_grid_x=0             # <<<<<<<<<<<<<<
  *     for d in range( num_datasets ):
  *         x_data_view = raw_x[ d ]
  */
-  __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_inf); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_inf); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyNumber_Negative(__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Negative(__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_15 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_15 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_15 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_15 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_current_min = __pyx_t_15;
   __pyx_v_current_max = __pyx_v_9reduction_5quant_6native_7_native_cnan;
   __pyx_v_current_grid_x = 0.0;
 
-  /* "reduction/quant/native/_native.pyx":134
+  /* "reduction/quant/native/_native.pyx":133
  *     cdef double[ : ] x_data_view, y_data_view
  *     cdef double current_min=-np.inf, current_max=cnan, current_grid_x=0
  *     for d in range( num_datasets ):             # <<<<<<<<<<<<<<
@@ -4437,41 +4437,41 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
   for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_1; __pyx_t_16+=1) {
     __pyx_v_d = __pyx_t_16;
 
-    /* "reduction/quant/native/_native.pyx":135
+    /* "reduction/quant/native/_native.pyx":134
  *     cdef double current_min=-np.inf, current_max=cnan, current_grid_x=0
  *     for d in range( num_datasets ):
  *         x_data_view = raw_x[ d ]             # <<<<<<<<<<<<<<
  *         y_data_view = raw_y[ d ]
  *         for i in range( grid_x_len ):
  */
-    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_raw_x, __pyx_v_d, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 135, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_raw_x, __pyx_v_d, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 134, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_17 = __Pyx_PyObject_to_MemoryviewSlice_ds_double(__pyx_t_7);
-    if (unlikely(!__pyx_t_17.memview)) __PYX_ERR(0, 135, __pyx_L1_error)
+    if (unlikely(!__pyx_t_17.memview)) __PYX_ERR(0, 134, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __PYX_XDEC_MEMVIEW(&__pyx_v_x_data_view, 1);
     __pyx_v_x_data_view = __pyx_t_17;
     __pyx_t_17.memview = NULL;
     __pyx_t_17.data = NULL;
 
-    /* "reduction/quant/native/_native.pyx":136
+    /* "reduction/quant/native/_native.pyx":135
  *     for d in range( num_datasets ):
  *         x_data_view = raw_x[ d ]
  *         y_data_view = raw_y[ d ]             # <<<<<<<<<<<<<<
  *         for i in range( grid_x_len ):
  *             current_grid_x = x_values_view[ i ]
  */
-    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_raw_y, __pyx_v_d, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 136, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_raw_y, __pyx_v_d, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 135, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_17 = __Pyx_PyObject_to_MemoryviewSlice_ds_double(__pyx_t_7);
-    if (unlikely(!__pyx_t_17.memview)) __PYX_ERR(0, 136, __pyx_L1_error)
+    if (unlikely(!__pyx_t_17.memview)) __PYX_ERR(0, 135, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __PYX_XDEC_MEMVIEW(&__pyx_v_y_data_view, 1);
     __pyx_v_y_data_view = __pyx_t_17;
     __pyx_t_17.memview = NULL;
     __pyx_t_17.data = NULL;
 
-    /* "reduction/quant/native/_native.pyx":137
+    /* "reduction/quant/native/_native.pyx":136
  *         x_data_view = raw_x[ d ]
  *         y_data_view = raw_y[ d ]
  *         for i in range( grid_x_len ):             # <<<<<<<<<<<<<<
@@ -4482,7 +4482,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
     for (__pyx_t_19 = 0; __pyx_t_19 < __pyx_t_18; __pyx_t_19+=1) {
       __pyx_v_i = __pyx_t_19;
 
-      /* "reduction/quant/native/_native.pyx":138
+      /* "reduction/quant/native/_native.pyx":137
  *         y_data_view = raw_y[ d ]
  *         for i in range( grid_x_len ):
  *             current_grid_x = x_values_view[ i ]             # <<<<<<<<<<<<<<
@@ -4497,25 +4497,25 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
       } else if (unlikely(__pyx_t_20 >= __pyx_v_x_values_view.shape[0])) __pyx_t_3 = 0;
       if (unlikely(__pyx_t_3 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_3);
-        __PYX_ERR(0, 138, __pyx_L1_error)
+        __PYX_ERR(0, 137, __pyx_L1_error)
       }
       __pyx_v_current_grid_x = (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_x_values_view.data) + __pyx_t_20)) )));
 
-      /* "reduction/quant/native/_native.pyx":139
+      /* "reduction/quant/native/_native.pyx":138
  *         for i in range( grid_x_len ):
  *             current_grid_x = x_values_view[ i ]
  *             for j in range( len( x_data_view ) ):             # <<<<<<<<<<<<<<
  *                 if x_data_view[ j ] >= current_grid_x + half_grid_spacing:
  *                     # Since the x values are sorted, we don't have to keep checking
  */
-      __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_x_data_view, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 139, __pyx_L1_error)
+      __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_x_data_view, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 138, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_21 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_21 == -1)) __PYX_ERR(0, 139, __pyx_L1_error)
+      __pyx_t_21 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_21 == -1)) __PYX_ERR(0, 138, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       for (__pyx_t_22 = 0; __pyx_t_22 < __pyx_t_21; __pyx_t_22+=1) {
         __pyx_v_j = __pyx_t_22;
 
-        /* "reduction/quant/native/_native.pyx":140
+        /* "reduction/quant/native/_native.pyx":139
  *             current_grid_x = x_values_view[ i ]
  *             for j in range( len( x_data_view ) ):
  *                 if x_data_view[ j ] >= current_grid_x + half_grid_spacing:             # <<<<<<<<<<<<<<
@@ -4530,12 +4530,12 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         } else if (unlikely(__pyx_t_23 >= __pyx_v_x_data_view.shape[0])) __pyx_t_3 = 0;
         if (unlikely(__pyx_t_3 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_3);
-          __PYX_ERR(0, 140, __pyx_L1_error)
+          __PYX_ERR(0, 139, __pyx_L1_error)
         }
         __pyx_t_24 = (((*((double *) ( /* dim=0 */ (__pyx_v_x_data_view.data + __pyx_t_23 * __pyx_v_x_data_view.strides[0]) ))) >= (__pyx_v_current_grid_x + __pyx_v_half_grid_spacing)) != 0);
         if (__pyx_t_24) {
 
-          /* "reduction/quant/native/_native.pyx":143
+          /* "reduction/quant/native/_native.pyx":142
  *                     # Since the x values are sorted, we don't have to keep checking
  *                     # once we have passed the maximum value
  *                     break             # <<<<<<<<<<<<<<
@@ -4544,7 +4544,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
  */
           goto __pyx_L8_break;
 
-          /* "reduction/quant/native/_native.pyx":140
+          /* "reduction/quant/native/_native.pyx":139
  *             current_grid_x = x_values_view[ i ]
  *             for j in range( len( x_data_view ) ):
  *                 if x_data_view[ j ] >= current_grid_x + half_grid_spacing:             # <<<<<<<<<<<<<<
@@ -4553,7 +4553,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
  */
         }
 
-        /* "reduction/quant/native/_native.pyx":144
+        /* "reduction/quant/native/_native.pyx":143
  *                     # once we have passed the maximum value
  *                     break
  *                 if x_data_view[ j ] < current_grid_x - half_grid_spacing:             # <<<<<<<<<<<<<<
@@ -4568,21 +4568,21 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         } else if (unlikely(__pyx_t_25 >= __pyx_v_x_data_view.shape[0])) __pyx_t_3 = 0;
         if (unlikely(__pyx_t_3 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_3);
-          __PYX_ERR(0, 144, __pyx_L1_error)
+          __PYX_ERR(0, 143, __pyx_L1_error)
         }
         __pyx_t_24 = (((*((double *) ( /* dim=0 */ (__pyx_v_x_data_view.data + __pyx_t_25 * __pyx_v_x_data_view.strides[0]) ))) < (__pyx_v_current_grid_x - __pyx_v_half_grid_spacing)) != 0);
         if (__pyx_t_24) {
 
-          /* "reduction/quant/native/_native.pyx":147
+          /* "reduction/quant/native/_native.pyx":146
  *                     # Keep skipping x values until we have passed the minimum
  *                     # value
  *                     continue             # <<<<<<<<<<<<<<
- *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or agg_values_view[ i, 2*d ] == cnan:
+ *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d ] ):
  *                     agg_values_view[ i, 2*d ] = y_data_view[ j ]
  */
           goto __pyx_L7_continue;
 
-          /* "reduction/quant/native/_native.pyx":144
+          /* "reduction/quant/native/_native.pyx":143
  *                     # once we have passed the maximum value
  *                     break
  *                 if x_data_view[ j ] < current_grid_x - half_grid_spacing:             # <<<<<<<<<<<<<<
@@ -4591,12 +4591,12 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
  */
         }
 
-        /* "reduction/quant/native/_native.pyx":148
+        /* "reduction/quant/native/_native.pyx":147
  *                     # value
  *                     continue
- *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or agg_values_view[ i, 2*d ] == cnan:             # <<<<<<<<<<<<<<
+ *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d ] ):             # <<<<<<<<<<<<<<
  *                     agg_values_view[ i, 2*d ] = y_data_view[ j ]
- *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or agg_values_view[ i, 2*d+1 ] == cnan:
+ *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d+1 ] ):
  */
         __pyx_t_26 = __pyx_v_i;
         __pyx_t_27 = (2 * __pyx_v_d);
@@ -4611,7 +4611,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         } else if (unlikely(__pyx_t_27 >= __pyx_v_agg_values_view.shape[1])) __pyx_t_3 = 1;
         if (unlikely(__pyx_t_3 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_3);
-          __PYX_ERR(0, 148, __pyx_L1_error)
+          __PYX_ERR(0, 147, __pyx_L1_error)
         }
         __pyx_t_28 = __pyx_v_j;
         __pyx_t_3 = -1;
@@ -4621,7 +4621,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         } else if (unlikely(__pyx_t_28 >= __pyx_v_y_data_view.shape[0])) __pyx_t_3 = 0;
         if (unlikely(__pyx_t_3 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_3);
-          __PYX_ERR(0, 148, __pyx_L1_error)
+          __PYX_ERR(0, 147, __pyx_L1_error)
         }
         __pyx_t_29 = (((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_agg_values_view.data + __pyx_t_26 * __pyx_v_agg_values_view.strides[0]) )) + __pyx_t_27)) ))) < (*((double *) ( /* dim=0 */ (__pyx_v_y_data_view.data + __pyx_t_28 * __pyx_v_y_data_view.strides[0]) )))) != 0);
         if (!__pyx_t_29) {
@@ -4642,18 +4642,18 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         } else if (unlikely(__pyx_t_31 >= __pyx_v_agg_values_view.shape[1])) __pyx_t_3 = 1;
         if (unlikely(__pyx_t_3 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_3);
-          __PYX_ERR(0, 148, __pyx_L1_error)
+          __PYX_ERR(0, 147, __pyx_L1_error)
         }
-        __pyx_t_29 = (((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_agg_values_view.data + __pyx_t_30 * __pyx_v_agg_values_view.strides[0]) )) + __pyx_t_31)) ))) == __pyx_v_9reduction_5quant_6native_7_native_cnan) != 0);
+        __pyx_t_29 = (isnan((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_agg_values_view.data + __pyx_t_30 * __pyx_v_agg_values_view.strides[0]) )) + __pyx_t_31)) )))) != 0);
         __pyx_t_24 = __pyx_t_29;
         __pyx_L12_bool_binop_done:;
         if (__pyx_t_24) {
 
-          /* "reduction/quant/native/_native.pyx":149
+          /* "reduction/quant/native/_native.pyx":148
  *                     continue
- *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or agg_values_view[ i, 2*d ] == cnan:
+ *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d ] ):
  *                     agg_values_view[ i, 2*d ] = y_data_view[ j ]             # <<<<<<<<<<<<<<
- *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or agg_values_view[ i, 2*d+1 ] == cnan:
+ *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d+1 ] ):
  *                     agg_values_view[ i, 2*d+1 ] = y_data_view[ j ]
  */
           __pyx_t_32 = __pyx_v_j;
@@ -4664,7 +4664,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
           } else if (unlikely(__pyx_t_32 >= __pyx_v_y_data_view.shape[0])) __pyx_t_3 = 0;
           if (unlikely(__pyx_t_3 != -1)) {
             __Pyx_RaiseBufferIndexError(__pyx_t_3);
-            __PYX_ERR(0, 149, __pyx_L1_error)
+            __PYX_ERR(0, 148, __pyx_L1_error)
           }
           __pyx_t_33 = __pyx_v_i;
           __pyx_t_34 = (2 * __pyx_v_d);
@@ -4679,25 +4679,25 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
           } else if (unlikely(__pyx_t_34 >= __pyx_v_agg_values_view.shape[1])) __pyx_t_3 = 1;
           if (unlikely(__pyx_t_3 != -1)) {
             __Pyx_RaiseBufferIndexError(__pyx_t_3);
-            __PYX_ERR(0, 149, __pyx_L1_error)
+            __PYX_ERR(0, 148, __pyx_L1_error)
           }
           *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_agg_values_view.data + __pyx_t_33 * __pyx_v_agg_values_view.strides[0]) )) + __pyx_t_34)) )) = (*((double *) ( /* dim=0 */ (__pyx_v_y_data_view.data + __pyx_t_32 * __pyx_v_y_data_view.strides[0]) )));
 
-          /* "reduction/quant/native/_native.pyx":148
+          /* "reduction/quant/native/_native.pyx":147
  *                     # value
  *                     continue
- *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or agg_values_view[ i, 2*d ] == cnan:             # <<<<<<<<<<<<<<
+ *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d ] ):             # <<<<<<<<<<<<<<
  *                     agg_values_view[ i, 2*d ] = y_data_view[ j ]
- *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or agg_values_view[ i, 2*d+1 ] == cnan:
+ *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d+1 ] ):
  */
         }
 
-        /* "reduction/quant/native/_native.pyx":150
- *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or agg_values_view[ i, 2*d ] == cnan:
+        /* "reduction/quant/native/_native.pyx":149
+ *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d ] ):
  *                     agg_values_view[ i, 2*d ] = y_data_view[ j ]
- *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or agg_values_view[ i, 2*d+1 ] == cnan:             # <<<<<<<<<<<<<<
+ *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d+1 ] ):             # <<<<<<<<<<<<<<
  *                     agg_values_view[ i, 2*d+1 ] = y_data_view[ j ]
- * 
+ *     print( agg_values )
  */
         __pyx_t_35 = __pyx_v_i;
         __pyx_t_36 = ((2 * __pyx_v_d) + 1);
@@ -4712,7 +4712,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         } else if (unlikely(__pyx_t_36 >= __pyx_v_agg_values_view.shape[1])) __pyx_t_3 = 1;
         if (unlikely(__pyx_t_3 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_3);
-          __PYX_ERR(0, 150, __pyx_L1_error)
+          __PYX_ERR(0, 149, __pyx_L1_error)
         }
         __pyx_t_37 = __pyx_v_j;
         __pyx_t_3 = -1;
@@ -4722,7 +4722,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         } else if (unlikely(__pyx_t_37 >= __pyx_v_y_data_view.shape[0])) __pyx_t_3 = 0;
         if (unlikely(__pyx_t_3 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_3);
-          __PYX_ERR(0, 150, __pyx_L1_error)
+          __PYX_ERR(0, 149, __pyx_L1_error)
         }
         __pyx_t_29 = (((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_agg_values_view.data + __pyx_t_35 * __pyx_v_agg_values_view.strides[0]) )) + __pyx_t_36)) ))) > (*((double *) ( /* dim=0 */ (__pyx_v_y_data_view.data + __pyx_t_37 * __pyx_v_y_data_view.strides[0]) )))) != 0);
         if (!__pyx_t_29) {
@@ -4743,18 +4743,18 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         } else if (unlikely(__pyx_t_39 >= __pyx_v_agg_values_view.shape[1])) __pyx_t_3 = 1;
         if (unlikely(__pyx_t_3 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_3);
-          __PYX_ERR(0, 150, __pyx_L1_error)
+          __PYX_ERR(0, 149, __pyx_L1_error)
         }
-        __pyx_t_29 = (((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_agg_values_view.data + __pyx_t_38 * __pyx_v_agg_values_view.strides[0]) )) + __pyx_t_39)) ))) == __pyx_v_9reduction_5quant_6native_7_native_cnan) != 0);
+        __pyx_t_29 = (isnan((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_agg_values_view.data + __pyx_t_38 * __pyx_v_agg_values_view.strides[0]) )) + __pyx_t_39)) )))) != 0);
         __pyx_t_24 = __pyx_t_29;
         __pyx_L15_bool_binop_done:;
         if (__pyx_t_24) {
 
-          /* "reduction/quant/native/_native.pyx":151
+          /* "reduction/quant/native/_native.pyx":150
  *                     agg_values_view[ i, 2*d ] = y_data_view[ j ]
- *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or agg_values_view[ i, 2*d+1 ] == cnan:
+ *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d+1 ] ):
  *                     agg_values_view[ i, 2*d+1 ] = y_data_view[ j ]             # <<<<<<<<<<<<<<
- * 
+ *     print( agg_values )
  *     # Prepare the actual outputs
  */
           __pyx_t_40 = __pyx_v_j;
@@ -4765,7 +4765,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
           } else if (unlikely(__pyx_t_40 >= __pyx_v_y_data_view.shape[0])) __pyx_t_3 = 0;
           if (unlikely(__pyx_t_3 != -1)) {
             __Pyx_RaiseBufferIndexError(__pyx_t_3);
-            __PYX_ERR(0, 151, __pyx_L1_error)
+            __PYX_ERR(0, 150, __pyx_L1_error)
           }
           __pyx_t_41 = __pyx_v_i;
           __pyx_t_42 = ((2 * __pyx_v_d) + 1);
@@ -4780,16 +4780,16 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
           } else if (unlikely(__pyx_t_42 >= __pyx_v_agg_values_view.shape[1])) __pyx_t_3 = 1;
           if (unlikely(__pyx_t_3 != -1)) {
             __Pyx_RaiseBufferIndexError(__pyx_t_3);
-            __PYX_ERR(0, 151, __pyx_L1_error)
+            __PYX_ERR(0, 150, __pyx_L1_error)
           }
           *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_agg_values_view.data + __pyx_t_41 * __pyx_v_agg_values_view.strides[0]) )) + __pyx_t_42)) )) = (*((double *) ( /* dim=0 */ (__pyx_v_y_data_view.data + __pyx_t_40 * __pyx_v_y_data_view.strides[0]) )));
 
-          /* "reduction/quant/native/_native.pyx":150
- *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or agg_values_view[ i, 2*d ] == cnan:
+          /* "reduction/quant/native/_native.pyx":149
+ *                 if agg_values_view[ i, 2*d ] < y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d ] ):
  *                     agg_values_view[ i, 2*d ] = y_data_view[ j ]
- *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or agg_values_view[ i, 2*d+1 ] == cnan:             # <<<<<<<<<<<<<<
+ *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d+1 ] ):             # <<<<<<<<<<<<<<
  *                     agg_values_view[ i, 2*d+1 ] = y_data_view[ j ]
- * 
+ *     print( agg_values )
  */
         }
         __pyx_L7_continue:;
@@ -4798,23 +4798,32 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
     }
   }
 
-  /* "reduction/quant/native/_native.pyx":154
- * 
+  /* "reduction/quant/native/_native.pyx":151
+ *                 if agg_values_view[ i, 2*d+1 ] > y_data_view[ j ] or cmath.isnan( agg_values_view[ i, 2*d+1 ] ):
+ *                     agg_values_view[ i, 2*d+1 ] = y_data_view[ j ]
+ *     print( agg_values )             # <<<<<<<<<<<<<<
+ *     # Prepare the actual outputs
+ *     upper_bound_output = np.zeros( ( num_bounds, grid_x_len ), dtype=np.float64 )
+ */
+  if (__Pyx_PrintOne(0, __pyx_v_agg_values) < 0) __PYX_ERR(0, 151, __pyx_L1_error)
+
+  /* "reduction/quant/native/_native.pyx":153
+ *     print( agg_values )
  *     # Prepare the actual outputs
  *     upper_bound_output = np.zeros( ( num_bounds, grid_x_len ), dtype=np.float64 )             # <<<<<<<<<<<<<<
  *     lower_bound_output = np.zeros( ( num_bounds, grid_x_len ), dtype=np.float64 )
  *     cdef double[ :, ::1 ] upper_bound_output_view=upper_bound_output, lower_bound_output_view=lower_bound_output
  */
-  __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_zeros); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_zeros); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyInt_FromSsize_t(__pyx_v_num_bounds); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_7 = PyInt_FromSsize_t(__pyx_v_num_bounds); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_grid_x_len); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_grid_x_len); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_7);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_7);
@@ -4822,21 +4831,21 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_4);
   __pyx_t_7 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6);
   __pyx_t_6 = 0;
-  __pyx_t_6 = PyDict_New(); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_6 = PyDict_New(); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_float64); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_float64); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_8) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_8) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -4844,23 +4853,23 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
   __pyx_v_upper_bound_output = __pyx_t_8;
   __pyx_t_8 = 0;
 
-  /* "reduction/quant/native/_native.pyx":155
+  /* "reduction/quant/native/_native.pyx":154
  *     # Prepare the actual outputs
  *     upper_bound_output = np.zeros( ( num_bounds, grid_x_len ), dtype=np.float64 )
  *     lower_bound_output = np.zeros( ( num_bounds, grid_x_len ), dtype=np.float64 )             # <<<<<<<<<<<<<<
  *     cdef double[ :, ::1 ] upper_bound_output_view=upper_bound_output, lower_bound_output_view=lower_bound_output
  *     cdef Bounds lbound, ubound
  */
-  __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_zeros); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_zeros); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = PyInt_FromSsize_t(__pyx_v_num_bounds); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_8 = PyInt_FromSsize_t(__pyx_v_num_bounds); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_grid_x_len); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_grid_x_len); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_8);
   PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8);
@@ -4868,21 +4877,21 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
   PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_4);
   __pyx_t_8 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_10);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_10);
   __pyx_t_10 = 0;
-  __pyx_t_10 = PyDict_New(); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_10 = PyDict_New(); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_float64); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_float64); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_4, __pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_4, __pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -4890,7 +4899,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
   __pyx_v_lower_bound_output = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "reduction/quant/native/_native.pyx":156
+  /* "reduction/quant/native/_native.pyx":155
  *     upper_bound_output = np.zeros( ( num_bounds, grid_x_len ), dtype=np.float64 )
  *     lower_bound_output = np.zeros( ( num_bounds, grid_x_len ), dtype=np.float64 )
  *     cdef double[ :, ::1 ] upper_bound_output_view=upper_bound_output, lower_bound_output_view=lower_bound_output             # <<<<<<<<<<<<<<
@@ -4898,17 +4907,17 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
  * 
  */
   __pyx_t_14 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_v_upper_bound_output);
-  if (unlikely(!__pyx_t_14.memview)) __PYX_ERR(0, 156, __pyx_L1_error)
+  if (unlikely(!__pyx_t_14.memview)) __PYX_ERR(0, 155, __pyx_L1_error)
   __pyx_v_upper_bound_output_view = __pyx_t_14;
   __pyx_t_14.memview = NULL;
   __pyx_t_14.data = NULL;
   __pyx_t_14 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_v_lower_bound_output);
-  if (unlikely(!__pyx_t_14.memview)) __PYX_ERR(0, 156, __pyx_L1_error)
+  if (unlikely(!__pyx_t_14.memview)) __PYX_ERR(0, 155, __pyx_L1_error)
   __pyx_v_lower_bound_output_view = __pyx_t_14;
   __pyx_t_14.memview = NULL;
   __pyx_t_14.data = NULL;
 
-  /* "reduction/quant/native/_native.pyx":160
+  /* "reduction/quant/native/_native.pyx":159
  * 
  *     # Fill the upper and lower bounds
  *     for i in range( num_bounds ):             # <<<<<<<<<<<<<<
@@ -4919,33 +4928,33 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
   for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_1; __pyx_t_16+=1) {
     __pyx_v_i = __pyx_t_16;
 
-    /* "reduction/quant/native/_native.pyx":161
+    /* "reduction/quant/native/_native.pyx":160
  *     # Fill the upper and lower bounds
  *     for i in range( num_bounds ):
  *         lbound = lower_bounds[ i ]             # <<<<<<<<<<<<<<
  *         ubound = upper_bounds[ i ]
  *         for j in range( grid_x_len ):
  */
-    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_lower_bounds, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 161, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_lower_bounds, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 160, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_9reduction_5quant_6native_7_native_Bounds))))) __PYX_ERR(0, 161, __pyx_L1_error)
+    if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_9reduction_5quant_6native_7_native_Bounds))))) __PYX_ERR(0, 160, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_lbound, ((struct __pyx_obj_9reduction_5quant_6native_7_native_Bounds *)__pyx_t_7));
     __pyx_t_7 = 0;
 
-    /* "reduction/quant/native/_native.pyx":162
+    /* "reduction/quant/native/_native.pyx":161
  *     for i in range( num_bounds ):
  *         lbound = lower_bounds[ i ]
  *         ubound = upper_bounds[ i ]             # <<<<<<<<<<<<<<
  *         for j in range( grid_x_len ):
  *             lower_bound_output_view[ i, j ] = lbound.run_on( agg_values_view[ j ] )
  */
-    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_upper_bounds, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_upper_bounds, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 161, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_9reduction_5quant_6native_7_native_Bounds))))) __PYX_ERR(0, 162, __pyx_L1_error)
+    if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_9reduction_5quant_6native_7_native_Bounds))))) __PYX_ERR(0, 161, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_ubound, ((struct __pyx_obj_9reduction_5quant_6native_7_native_Bounds *)__pyx_t_7));
     __pyx_t_7 = 0;
 
-    /* "reduction/quant/native/_native.pyx":163
+    /* "reduction/quant/native/_native.pyx":162
  *         lbound = lower_bounds[ i ]
  *         ubound = upper_bounds[ i ]
  *         for j in range( grid_x_len ):             # <<<<<<<<<<<<<<
@@ -4956,7 +4965,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
     for (__pyx_t_19 = 0; __pyx_t_19 < __pyx_t_18; __pyx_t_19+=1) {
       __pyx_v_j = __pyx_t_19;
 
-      /* "reduction/quant/native/_native.pyx":164
+      /* "reduction/quant/native/_native.pyx":163
  *         ubound = upper_bounds[ i ]
  *         for j in range( grid_x_len ):
  *             lower_bound_output_view[ i, j ] = lbound.run_on( agg_values_view[ j ] )             # <<<<<<<<<<<<<<
@@ -4974,7 +4983,7 @@ static PyObject *__pyx_pf_9reduction_5quant_6native_7_native_2bounds_reduce(CYTH
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (1 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 164, __pyx_L1_error)
+        __PYX_ERR(0, 163, __pyx_L1_error)
     }
         __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -4996,14 +5005,14 @@ __pyx_t_43 = __pyx_v_i;
       } else if (unlikely(__pyx_t_44 >= __pyx_v_lower_bound_output_view.shape[1])) __pyx_t_3 = 1;
       if (unlikely(__pyx_t_3 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_3);
-        __PYX_ERR(0, 164, __pyx_L1_error)
+        __PYX_ERR(0, 163, __pyx_L1_error)
       }
       *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_lower_bound_output_view.data + __pyx_t_43 * __pyx_v_lower_bound_output_view.strides[0]) )) + __pyx_t_44)) )) = ((struct __pyx_vtabstruct_9reduction_5quant_6native_7_native_Bounds *)__pyx_v_lbound->__pyx_vtab)->run_on(__pyx_v_lbound, __pyx_t_11);
       __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
       __pyx_t_11.memview = NULL;
       __pyx_t_11.data = NULL;
 
-      /* "reduction/quant/native/_native.pyx":165
+      /* "reduction/quant/native/_native.pyx":164
  *         for j in range( grid_x_len ):
  *             lower_bound_output_view[ i, j ] = lbound.run_on( agg_values_view[ j ] )
  *             upper_bound_output_view[ i, j ] = ubound.run_on( agg_values_view[ j ] )             # <<<<<<<<<<<<<<
@@ -5021,7 +5030,7 @@ __pyx_t_43 = __pyx_v_i;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (1 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 165, __pyx_L1_error)
+        __PYX_ERR(0, 164, __pyx_L1_error)
     }
         __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -5043,7 +5052,7 @@ __pyx_t_45 = __pyx_v_i;
       } else if (unlikely(__pyx_t_46 >= __pyx_v_upper_bound_output_view.shape[1])) __pyx_t_3 = 1;
       if (unlikely(__pyx_t_3 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_3);
-        __PYX_ERR(0, 165, __pyx_L1_error)
+        __PYX_ERR(0, 164, __pyx_L1_error)
       }
       *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_upper_bound_output_view.data + __pyx_t_45 * __pyx_v_upper_bound_output_view.strides[0]) )) + __pyx_t_46)) )) = ((struct __pyx_vtabstruct_9reduction_5quant_6native_7_native_Bounds *)__pyx_v_ubound->__pyx_vtab)->run_on(__pyx_v_ubound, __pyx_t_11);
       __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
@@ -5052,13 +5061,13 @@ __pyx_t_45 = __pyx_v_i;
     }
   }
 
-  /* "reduction/quant/native/_native.pyx":167
+  /* "reduction/quant/native/_native.pyx":166
  *             upper_bound_output_view[ i, j ] = ubound.run_on( agg_values_view[ j ] )
  * 
  *     return x_values, lower_bound_output, upper_bound_output             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_v_x_values);
   __Pyx_GIVEREF(__pyx_v_x_values);

@@ -16,6 +16,7 @@ if __name__ == "__main__":
     parser.add_argument( "--test", help="Run unit tests", action="store_true" )
     parser.add_argument( "--benchmark", help="Run benchmarks", action="store_true" )
     parser.add_argument( "--build", help="Builds the package and its documentation", action="store_true" )
+    parser.add_argument( "--docs", help="Builds the documentation", action="store_true" )
     
     args = parser.parse_args()
     
@@ -23,6 +24,7 @@ if __name__ == "__main__":
         os.chdir( d )
         os.system( "python setup.py build_ext --inplace" )
 
+if args.docs:
         cli.main(
             Namespace(
                 modules=["reduction"],
@@ -43,7 +45,7 @@ if __name__ == "__main__":
                 skip_errors=False
             )
         )
-
+        
         shutil.rmtree( d/"docs", True )
         shutil.move( d/"build/docs/reduction/", d/"docs" )
         shutil.rmtree( d/"build/docs" )

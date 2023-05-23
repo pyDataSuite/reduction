@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>reduction.quant.Bounds API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<link rel="preconnect" href="https://www.google.com">
+<script async src="https://cse.google.com/cse.js?cx=017837193012385208679:pey8ky8gdqw"></script>
+<style>
+.gsc-control-cse {padding:0 !important;margin-top:1em}
+body.gsc-overflow-hidden #sidebar {overflow: visible;}
+</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>reduction.quant.Bounds</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+from reduction.quant.native import Bounds
+# from reduction.quant.native._native import 
+
+class Bounds():
+
+    def __init__( self, *datasets, bounds=[], shading=[] ):
+
+        # == No longer perform this method ==
+        # Get a common time array between all the datasets
+        # xvals = np.array([], dtype=np.float64)
+        # for dataset in datasets:
+        #     xs = dataset[ 0 ]
+        #     xvals = np.append( xvals, xs )
+        #     xvals = np.unique( xvals )
+        # xvals = np.sort( xvals )
+
+        # Generate the raw data
+        # self.raw_data = np.zeros( ( len( datasets ) + 1, len( xvals ) ), dtype=np.float64 )
+        # self.raw_data[ 0 ] = xvals
+        # for i, dataset in enumerate( datasets ):
+        #     self.raw_data[ i + 1 ] = np.interp( self.raw_data[ 0 ], dataset[ 0 ], dataset[ 1 ], left=np.nan, right=np.nan )
+
+        # Store raw data in the class, but copy it so the original data is not modified
+        self.raw_xs = []
+        self.raw_ys = []
+        for data_x, data_y in datasets:
+            # Sort indices to make future operations faster
+            sort_indices = np.argsort( data_x )
+
+            # Add x list only if an identical one is not already stored
+            for xlist in self.raw_xs:
+                if np.all( xlist == data_x[ sort_indices ] ):
+                    self.raw_xs.append( xlist )
+                    break
+            else:
+                self.raw_xs.append( np.copy( data_x[ sort_indices ] ) )
+            
+            # Add all y lists
+            self.raw_ys.append( np.copy( data_y[ sort_indices ] ) )
+
+        
+        # Set up the bounds objects
+        self.lower_bounds = [ Bounds( btype=&#34;%&#34;==b[ 0 ][-1], value=float( b[ 0 ][:-1] ) ) for b in bounds ]
+        self.upper_bounds = [ Bounds( btype=&#34;%&#34;==b[ 1 ][-1], value=float( b[ 1 ][:-1] ) ) for b in bounds ]
+
+        # Some additional class stuff
+        # self.lower_bounds = [ b[ 0 ] for b in bounds ]
+        # self.upper_bounds = [ b[ 1 ] for b in bounds ]
+        self.shading = shading
+
+        # Process the smaller dataset
+        self.reduce_data( )
+
+    def reduce_data( self ):
+        pass
+        # self.data_small = np.zeros( ( 2*len( self.lower_bounds ) + 1, len( self.raw_data[ 0 ] ) ), dtype=np.float64 )
+        # self.data_small[ 0 ] = self.raw_data[ 0 ]
+        # for i, ( lower, upper ) in enumerate( zip( self.lower_bounds, self.upper_bounds ) ):
+        #     if &#34;s&#34; == lower[ -1 ]:
+        #         sigma = float( lower[ :-1 ] )
+        #         self.data_small[ 2*i+1 ] = np.mean( self.raw_data[ 1: ], axis=0 ) + sigma * np.std( self.raw_data[ 1: ], axis=0 )
+        #     elif &#34;%&#34; == lower[ -1 ]:
+        #         percentile = float( lower[ :-1 ] )
+        #         self.data_small[ 2*i+1 ] = np.percentile( self.raw_data[ 1: ], percentile, axis=0 )
+
+        #     if &#34;s&#34; == upper[ -1 ]:
+        #         sigma = float( upper[ :-1 ] )
+        #         self.data_small[ 2*i+2 ] = np.mean( self.raw_data[ 1: ], axis=0 ) + sigma * np.std( self.raw_data[ 1: ], axis=0 )
+        #     elif &#34;%&#34; == upper[ -1 ]:
+        #         percentile = float( upper[ :-1 ] )
+        #         self.data_small[ 2*i+2 ] = np.percentile( self.raw_data[ 1: ], percentile, axis=0 )
+
+    def plot_lines( self, ax, fig, **plot_args ):
+        for dataset in self.raw_data[ 1: ]:
+            ax.plot( self.raw_data[ 0 ], dataset, **plot_args )
+
+    def plot( self, ax, fig, **plot_args ):
+        for i, ( lower, upper ) in enumerate( zip( self.lower_bounds, self.upper_bounds ) ):
+            ax.fill_between( 
+                self.data_small[ 0 ], 
+                self.data_small[ 2*i+1 ], 
+                self.data_small[ 2*i+2 ], 
+                color=self.shading[ i ], 
+                label=f&#34;{ lower } to { upper }&#34;, 
+                **plot_args 
+            )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="reduction.quant.Bounds.Bounds"><code class="flex name class">
+<span>class <span class="ident">Bounds</span></span>
+<span>(</span><span>*datasets, bounds=[], shading=[])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Bounds():
+
+    def __init__( self, *datasets, bounds=[], shading=[] ):
+
+        # == No longer perform this method ==
+        # Get a common time array between all the datasets
+        # xvals = np.array([], dtype=np.float64)
+        # for dataset in datasets:
+        #     xs = dataset[ 0 ]
+        #     xvals = np.append( xvals, xs )
+        #     xvals = np.unique( xvals )
+        # xvals = np.sort( xvals )
+
+        # Generate the raw data
+        # self.raw_data = np.zeros( ( len( datasets ) + 1, len( xvals ) ), dtype=np.float64 )
+        # self.raw_data[ 0 ] = xvals
+        # for i, dataset in enumerate( datasets ):
+        #     self.raw_data[ i + 1 ] = np.interp( self.raw_data[ 0 ], dataset[ 0 ], dataset[ 1 ], left=np.nan, right=np.nan )
+
+        # Store raw data in the class, but copy it so the original data is not modified
+        self.raw_xs = []
+        self.raw_ys = []
+        for data_x, data_y in datasets:
+            # Sort indices to make future operations faster
+            sort_indices = np.argsort( data_x )
+
+            # Add x list only if an identical one is not already stored
+            for xlist in self.raw_xs:
+                if np.all( xlist == data_x[ sort_indices ] ):
+                    self.raw_xs.append( xlist )
+                    break
+            else:
+                self.raw_xs.append( np.copy( data_x[ sort_indices ] ) )
+            
+            # Add all y lists
+            self.raw_ys.append( np.copy( data_y[ sort_indices ] ) )
+
+        
+        # Set up the bounds objects
+        self.lower_bounds = [ Bounds( btype=&#34;%&#34;==b[ 0 ][-1], value=float( b[ 0 ][:-1] ) ) for b in bounds ]
+        self.upper_bounds = [ Bounds( btype=&#34;%&#34;==b[ 1 ][-1], value=float( b[ 1 ][:-1] ) ) for b in bounds ]
+
+        # Some additional class stuff
+        # self.lower_bounds = [ b[ 0 ] for b in bounds ]
+        # self.upper_bounds = [ b[ 1 ] for b in bounds ]
+        self.shading = shading
+
+        # Process the smaller dataset
+        self.reduce_data( )
+
+    def reduce_data( self ):
+        pass
+        # self.data_small = np.zeros( ( 2*len( self.lower_bounds ) + 1, len( self.raw_data[ 0 ] ) ), dtype=np.float64 )
+        # self.data_small[ 0 ] = self.raw_data[ 0 ]
+        # for i, ( lower, upper ) in enumerate( zip( self.lower_bounds, self.upper_bounds ) ):
+        #     if &#34;s&#34; == lower[ -1 ]:
+        #         sigma = float( lower[ :-1 ] )
+        #         self.data_small[ 2*i+1 ] = np.mean( self.raw_data[ 1: ], axis=0 ) + sigma * np.std( self.raw_data[ 1: ], axis=0 )
+        #     elif &#34;%&#34; == lower[ -1 ]:
+        #         percentile = float( lower[ :-1 ] )
+        #         self.data_small[ 2*i+1 ] = np.percentile( self.raw_data[ 1: ], percentile, axis=0 )
+
+        #     if &#34;s&#34; == upper[ -1 ]:
+        #         sigma = float( upper[ :-1 ] )
+        #         self.data_small[ 2*i+2 ] = np.mean( self.raw_data[ 1: ], axis=0 ) + sigma * np.std( self.raw_data[ 1: ], axis=0 )
+        #     elif &#34;%&#34; == upper[ -1 ]:
+        #         percentile = float( upper[ :-1 ] )
+        #         self.data_small[ 2*i+2 ] = np.percentile( self.raw_data[ 1: ], percentile, axis=0 )
+
+    def plot_lines( self, ax, fig, **plot_args ):
+        for dataset in self.raw_data[ 1: ]:
+            ax.plot( self.raw_data[ 0 ], dataset, **plot_args )
+
+    def plot( self, ax, fig, **plot_args ):
+        for i, ( lower, upper ) in enumerate( zip( self.lower_bounds, self.upper_bounds ) ):
+            ax.fill_between( 
+                self.data_small[ 0 ], 
+                self.data_small[ 2*i+1 ], 
+                self.data_small[ 2*i+2 ], 
+                color=self.shading[ i ], 
+                label=f&#34;{ lower } to { upper }&#34;, 
+                **plot_args 
+            )</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="reduction.quant.Bounds.Bounds.plot"><code class="name flex">
+<span>def <span class="ident">plot</span></span>(<span>self, ax, fig, **plot_args)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plot( self, ax, fig, **plot_args ):
+    for i, ( lower, upper ) in enumerate( zip( self.lower_bounds, self.upper_bounds ) ):
+        ax.fill_between( 
+            self.data_small[ 0 ], 
+            self.data_small[ 2*i+1 ], 
+            self.data_small[ 2*i+2 ], 
+            color=self.shading[ i ], 
+            label=f&#34;{ lower } to { upper }&#34;, 
+            **plot_args 
+        )</code></pre>
+</details>
+</dd>
+<dt id="reduction.quant.Bounds.Bounds.plot_lines"><code class="name flex">
+<span>def <span class="ident">plot_lines</span></span>(<span>self, ax, fig, **plot_args)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plot_lines( self, ax, fig, **plot_args ):
+    for dataset in self.raw_data[ 1: ]:
+        ax.plot( self.raw_data[ 0 ], dataset, **plot_args )</code></pre>
+</details>
+</dd>
+<dt id="reduction.quant.Bounds.Bounds.reduce_data"><code class="name flex">
+<span>def <span class="ident">reduce_data</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reduce_data( self ):
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="gcse-search" style="height: 70px"
+data-as_oq="site:pydatasuite.github.io"
+data-gaCategoryParameter="reduction.quant.Bounds">
+</div>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="reduction.quant" href="index.html">reduction.quant</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="reduction.quant.Bounds.Bounds" href="#reduction.quant.Bounds.Bounds">Bounds</a></code></h4>
+<ul class="">
+<li><code><a title="reduction.quant.Bounds.Bounds.plot" href="#reduction.quant.Bounds.Bounds.plot">plot</a></code></li>
+<li><code><a title="reduction.quant.Bounds.Bounds.plot_lines" href="#reduction.quant.Bounds.Bounds.plot_lines">plot_lines</a></code></li>
+<li><code><a title="reduction.quant.Bounds.Bounds.reduce_data" href="#reduction.quant.Bounds.Bounds.reduce_data">reduce_data</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
